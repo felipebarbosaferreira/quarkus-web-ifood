@@ -28,3 +28,15 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 You can then execute your native executable with: `./target/quarkus-web-ifood-cadastro-0.0.1-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.
+
+## Extensoes
+
+mvn quarkus:add-extension -Dextensions="jdbc-postgres, quarkus-hibernate-orm-panache, resteasy-jsonb, quarkus-smallrye-openapi, hibernate-validator"
+
+| Extension | Description |
+| --- | --- |
+| jdbc-postgres | banco de dados |
+| quarkus-hibernate-orm-panache | como se fosse o SpringData para agilizar o acesso ao DB |
+| resteasy-jsonb | bind |
+| quarkus-smallrye-openapi | documentacao dos endpoints |
+| hibernate-validator | validacao dos campos |
