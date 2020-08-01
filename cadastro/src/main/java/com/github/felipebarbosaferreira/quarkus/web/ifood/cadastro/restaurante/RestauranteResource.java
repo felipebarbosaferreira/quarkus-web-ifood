@@ -16,9 +16,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
 @Path("/restaurantes")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@Tag(name = "restaurantes")
 public class RestauranteResource {
     @Inject
     RestauranteService restauranteService;

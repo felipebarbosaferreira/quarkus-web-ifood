@@ -16,9 +16,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+
 @Path("/localizacoes")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@Tag(name = "localizacoes")
 public class LocalizacaoResource {
 	@Inject
 	LocalizacaoService localizacaoService;
