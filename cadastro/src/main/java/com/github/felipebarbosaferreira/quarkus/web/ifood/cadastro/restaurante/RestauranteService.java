@@ -25,9 +25,9 @@ public class RestauranteService {
 		restauranteRepository.salvar(restaurante);
 	}
 	
-	public void atualizar(Restaurante restaurante2) {
-		Restaurante restaurante = obter(restaurante2.id);
-		restaurante.nome = restaurante2.nome;
+	public void atualizar(Long id, Restaurante restaurante) {
+		Restaurante restauranteDB = obter(id);
+		restauranteDB.nome = restaurante.nome;
 	}
 	
 	public void deletar(Long id) {

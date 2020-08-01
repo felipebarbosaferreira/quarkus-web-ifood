@@ -11,9 +11,11 @@ import javax.persistence.Table;
 
 import com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.restaurante.Restaurante;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 @Entity
 @Table(name = "prato")
-public class Prato {
+public class Prato extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;

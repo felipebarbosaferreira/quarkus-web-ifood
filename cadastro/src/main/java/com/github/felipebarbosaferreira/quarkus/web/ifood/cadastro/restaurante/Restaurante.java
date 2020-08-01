@@ -14,10 +14,12 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.localizacao.Localizacao;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 
 @Entity
 @Table(name = "restaurante")
-public class Restaurante {
+public class Restaurante extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;

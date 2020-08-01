@@ -1,4 +1,4 @@
-package com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.restaurante;
+package com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.localizacao;
 
 import java.util.List;
 
@@ -16,42 +16,42 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-@Path("/restaurantes")
+@Path("/localizacoes")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class RestauranteResource {
-    @Inject
-    RestauranteService restauranteService;
+public class LocalizacaoResource {
+	@Inject
+	LocalizacaoService localizacaoService;
 
     @GET
-    public List<Restaurante> listarTodos() {
-        return restauranteService.listarTodos();
+    public List<Localizacao> listarTodos() {
+        return localizacaoService.listarTodos();
     }
     
     @GET
     @Path("{id}")
-    public Restaurante obter(@PathParam("id") Long id) {
-    	return restauranteService.obter(id);
+    public Localizacao obter(@PathParam("id") Long id) {
+    	return localizacaoService.obter(id);
     }
     
     @POST
     @Transactional
-    public void adicionar(Restaurante restaurante) {
-    	restauranteService.adicionar(restaurante);
+    public void adicionar(Localizacao restaurante) {
+    	localizacaoService.adicionar(restaurante);
     	Response.status(Status.CREATED).build();
     }
     
     @PUT
     @Path("{id}")
     @Transactional
-    public void atualizar(@PathParam("id") Long id, Restaurante restaurante) {
-    	restauranteService.atualizar(id, restaurante);
+    public void atualizar(@PathParam("id") Long id, Localizacao restaurante) {
+    	localizacaoService.atualizar(id, restaurante);
     }
     
     @DELETE
     @Path("{id}")
     @Transactional
     public void deletar(@PathParam("id") Long id) {
-    	restauranteService.deletar(id);
+    	localizacaoService.deletar(id);
     }
 }
