@@ -1,0 +1,10 @@
+restaurante:
+   - ID: 1
+     NOME: "Restaurante UM"
+     PROPRIETARIO: "Proprietario UM"
+   - ID: 2
+     NOME: "Restaurante Dois"
+     PROPRIETARIO: "Proprietario Dois"
+   - ID: 3
+     NOME: "Restaurante Tres"
+     PROPRIETARIO: "Proprietario Tres"

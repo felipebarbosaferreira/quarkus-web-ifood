@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "nome": "Restaurante UM",
+    "proprietario": "Proprietario UM"
+  },
+  {
+    "id": 2,
+    "nome": "Restaurante Dois",
+    "proprietario": "Proprietario Dois"
+  },
+  {
+    "id": 3,
+    "nome": "Restaurante Tres",
+    "proprietario": "Proprietario Tres"
+  }
+]
