@@ -21,6 +21,10 @@ public class PratoService {
 		return pratoRepository.listarTodos();
 	}
 	
+	public List<Prato> listarTodos(Long idRestaurante) {
+		return pratoRepository.listarTodos(idRestaurante);
+	}
+	
 	public void adicionar(Prato prato) {
 		pratoRepository.salvar(prato);
 	}

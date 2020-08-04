@@ -32,6 +32,12 @@ public class PratoResource {
 	}
 	
 	@GET
+	@Path("restaurante/{idrestaurante}")
+	public List<Prato> listarTodos(@PathParam("idrestaurante") Long idRestaurante) {
+		return pratoService.listarTodos(idRestaurante);
+	}
+	
+	@GET
 	@Path("{id}")
 	public Prato obter(@PathParam("id") Long id) {
 		return pratoService.obter(id);

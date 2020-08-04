@@ -18,6 +18,10 @@ public class PratoRepository implements PanacheRepository<Prato> {
         return listAll();
     }
 	
+	public List<Prato> listarTodos(Long idRestaurante) {
+        return list("restaurante.id", idRestaurante);
+    }
+	
 	public void salvar(Prato prato) {
 		persist(prato);
 	}
