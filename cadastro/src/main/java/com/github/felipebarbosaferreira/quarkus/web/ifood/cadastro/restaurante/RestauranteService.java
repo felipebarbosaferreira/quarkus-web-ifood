@@ -11,6 +11,9 @@ import javax.ws.rs.NotFoundException;
 public class RestauranteService {
 	@Inject
 	RestauranteRepository restauranteRepository;
+	
+	@Inject
+	RestauranteMapper restauranteMapper;
 
 	public Restaurante obter(Long id) {
 		Optional<Restaurante> restaurante = restauranteRepository.obter(id);
@@ -21,11 +24,13 @@ public class RestauranteService {
         return restauranteRepository.listarTodos();
     }
 	
-	public void adicionar(Restaurante restaurante) {
+	public void adicionar(RestauranteDomain restauranteDomain) {
+		Restaurante restaurante = restauranteMapper.restauranteDomainToRestaurante(restauranteDomain);
 		restauranteRepository.salvar(restaurante);
 	}
 	
-	public void atualizar(Long id, Restaurante restaurante) {
+	public void atualizar(Long id, RestauranteDomain restauranteDomain) {
+		Restaurante restaurante = restauranteMapper.restauranteDomainToRestaurante(restauranteDomain);
 		Restaurante restauranteDB = obter(id);
 		restauranteDB.nome = restaurante.nome;
 	}

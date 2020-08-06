@@ -39,16 +39,16 @@ public class RestauranteResource {
     
     @POST
     @Transactional
-    public void adicionar(Restaurante restaurante) {
-    	restauranteService.adicionar(restaurante);
+    public void adicionar(RestauranteDomain restauranteDomain) {
+    	restauranteService.adicionar(restauranteDomain);
     	Response.status(Status.CREATED).build();
     }
     
     @PUT
     @Path("{id}")
     @Transactional
-    public void atualizar(@PathParam("id") Long id, Restaurante restaurante) {
-    	restauranteService.atualizar(id, restaurante);
+    public void atualizar(@PathParam("id") Long id, RestauranteDomain restauranteDomain) {
+    	restauranteService.atualizar(id, restauranteDomain);
     }
     
     @DELETE
