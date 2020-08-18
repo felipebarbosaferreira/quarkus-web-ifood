@@ -45,16 +45,16 @@ public class PratoResource {
 	
 	@POST
 	@Transactional
-	public void adicionar(Prato prato) {
-		pratoService.adicionar(prato);
+	public void adicionar(PratoDomain pratoDomain) {
+		pratoService.adicionar(pratoDomain);
 		Response.status(Status.CREATED).build();
 	}
 	
 	@PUT
 	@Path("{id}")
 	@Transactional
-	public void atualizar(@PathParam("id") Long id, Prato prato) {
-		pratoService.atualizar(id, prato);
+	public void atualizar(@PathParam("id") Long id, PratoDomain pratoDomain) {
+		pratoService.atualizar(id, pratoDomain);
 	}
 	
 	@DELETE

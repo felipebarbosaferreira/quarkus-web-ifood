@@ -1,0 +1,20 @@
+[
+  {
+    "descricao": "Filé de Tilápia grelhado com cebolas, alcaparras e salsinha. Acompanha arroz de alho e batata soutê.",
+    "id": 5,
+    "nome": "Tilápia Pescador",
+    "preco": 12.45
+  },
+  {
+    "descricao": "Receita contemporânea. Sabor agridoce. Filé de peixe grelhado com pedacinhos de castanha de caju e molho de manga com gengibre e maracujá. Acompanha arroz com brócolis e purê de abóbora.",
+    "id": 7,
+    "nome": "Peixe Praiano",
+    "preco": 32.12
+  },
+  {
+    "descricao": "Filé de peixe empanado ao coco e farinha de pães frescos, crocante por fora e macio por dentro. Acompanha arroz de castanha e maionese de batata com picles de pepino.",
+    "id": 8,
+    "nome": "Peixe Crocante",
+    "preco": 23.67
+  }
+]

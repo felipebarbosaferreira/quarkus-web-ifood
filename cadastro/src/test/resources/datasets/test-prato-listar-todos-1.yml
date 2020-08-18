@@ -1,0 +1,13 @@
+prato:
+   - ID: 5
+     NOME: "Tilápia Pescador"
+     DESCRICAO: "Filé de Tilápia grelhado com cebolas, alcaparras e salsinha. Acompanha arroz de alho e batata soutê."
+     PRECO: 12.45
+   - ID: 7
+     NOME: "Peixe Praiano"
+     DESCRICAO: "Receita contemporânea. Sabor agridoce. Filé de peixe grelhado com pedacinhos de castanha de caju e molho de manga com gengibre e maracujá. Acompanha arroz com brócolis e purê de abóbora."
+     PRECO: 32.12
+   - ID: 8
+     NOME: "Peixe Crocante"
+     DESCRICAO: "Filé de peixe empanado ao coco e farinha de pães frescos, crocante por fora e macio por dentro. Acompanha arroz de castanha e maionese de batata com picles de pepino."
+     PRECO: 23.67
