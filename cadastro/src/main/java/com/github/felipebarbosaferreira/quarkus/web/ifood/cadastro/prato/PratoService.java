@@ -13,7 +13,7 @@ import com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.restaurante.R
 public class PratoService {
 	@Inject
 	PratoRepository pratoRepository;
-	
+
 	@Inject
 	PratoMapper pratoMapper;
 	

@@ -1,11 +1,11 @@
 package com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.restaurante;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 import javax.ws.rs.core.MediaType;
 
 import org.approvaltests.Approvals;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.github.database.rider.cdi.api.DBRider;
@@ -13,16 +13,32 @@ import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.core.api.configuration.Orthography;
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.PostgresDBLifeCycleControlTest;
+import com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.util.TokenUtils;
 
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
+import io.restassured.http.Header;
+import io.restassured.specification.RequestSpecification;
 
 @DBRider
 @DBUnit(caseInsensitiveStrategy = Orthography.LOWERCASE)
 @QuarkusTest
 @QuarkusTestResource(PostgresDBLifeCycleControlTest.class)
 public class RestauranteResourceTest {
+	
+	private static final TokenUtils tokenUtils = new TokenUtils();
+	private String token;
+	
+	@BeforeEach
+	public void obterToken() {
+		token = tokenUtils.generateToken();
+	}
 
+	private RequestSpecification given() {
+		return RestAssured.given().header(new Header("Authorization", "Bearer ".concat(token)));
+	}
+	
 	@Test
 	@DataSet("test-restaurante-listar-todos-1.yml")
 	public void testListarTodosEndpoint() {

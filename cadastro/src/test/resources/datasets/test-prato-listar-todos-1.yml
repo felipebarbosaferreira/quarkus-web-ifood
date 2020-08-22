@@ -11,3 +11,13 @@ prato:
      NOME: "Peixe Crocante"
      DESCRICAO: "Filé de peixe empanado ao coco e farinha de pães frescos, crocante por fora e macio por dentro. Acompanha arroz de castanha e maionese de batata com picles de pepino."
      PRECO: 23.67
+restaurante:
+   - ID: 1
+     NOME: "Restaurante 1"
+     PROPRIETARIO: "Proprietario 1"
+   - ID: 6
+     NOME: "Restaurante SEIS"
+     PROPRIETARIO: "Proprietario SEIS"
+   - ID: 7
+     NOME: "Restaurante SETE"
+     PROPRIETARIO: "Proprietario SETE"
