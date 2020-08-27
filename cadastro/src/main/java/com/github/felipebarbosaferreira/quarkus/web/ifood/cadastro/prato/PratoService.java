@@ -7,9 +7,12 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.NotFoundException;
 
+import org.eclipse.microprofile.opentracing.Traced;
+
 import com.github.felipebarbosaferreira.quarkus.web.ifood.cadastro.restaurante.RestauranteService;
 
 @ApplicationScoped
+@Traced
 public class PratoService {
 	@Inject
 	PratoRepository pratoRepository;

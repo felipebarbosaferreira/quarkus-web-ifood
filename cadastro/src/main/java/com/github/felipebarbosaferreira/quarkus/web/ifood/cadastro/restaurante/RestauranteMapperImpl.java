@@ -9,7 +9,8 @@ public class RestauranteMapperImpl implements RestauranteMapper {
 
 	@Override
 	public RestauranteDomain restauranteToRestauranteDomain(Restaurante restaurante) {
-		return new RestauranteDomain(restaurante.proprietario, restaurante.cnpj, restaurante.nome, new LocalizacaoDomain(restaurante.localizacao.latitude, restaurante.localizacao.longitude));
+		RestauranteDomain restauranteDomain = new RestauranteDomain(restaurante.proprietario, restaurante.cnpj, restaurante.nome, new LocalizacaoDomain(restaurante.localizacao.latitude, restaurante.localizacao.longitude)); 
+		return restauranteDomain;
 	}
 
 	@Override

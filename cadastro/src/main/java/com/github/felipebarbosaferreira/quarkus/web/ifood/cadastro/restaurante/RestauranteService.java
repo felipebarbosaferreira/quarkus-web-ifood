@@ -7,7 +7,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.NotFoundException;
 
+import org.eclipse.microprofile.opentracing.Traced;
+
 @ApplicationScoped
+@Traced
 public class RestauranteService {
 	@Inject
 	RestauranteRepository restauranteRepository;
