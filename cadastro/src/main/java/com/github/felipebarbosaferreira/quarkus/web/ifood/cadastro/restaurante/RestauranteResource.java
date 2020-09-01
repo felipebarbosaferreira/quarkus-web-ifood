@@ -17,6 +17,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlows;
@@ -37,6 +40,9 @@ public class RestauranteResource {
     RestauranteService restauranteService;
 
     @GET
+    @Counted(name = "RestauranteResource.listarTodos", displayName = "Quantidade de buscas Restaurante", absolute = true)
+    @SimplyTimed(name = "Tempo simples de busca")
+    @Timed(name = "Tempo completo de busca")
     public List<Restaurante> listarTodos() {
         return restauranteService.listarTodos();
     }
