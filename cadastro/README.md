@@ -41,4 +41,6 @@ mvn quarkus:add-extension -Dextensions="jdbc-postgres, quarkus-hibernate-orm-pan
 | quarkus-smallrye-openapi | documentacao dos endpoints |
 | hibernate-validator | validacao dos campos |
 | jwt | JSON Web Token |
-|Jaeger | smallrye-opentracing |
+| Jaeger | smallrye-opentracing |
+| Metrics | geracao de metricas Prometheus e Grafana |
+| Flyway | migracao do banco de dados |
