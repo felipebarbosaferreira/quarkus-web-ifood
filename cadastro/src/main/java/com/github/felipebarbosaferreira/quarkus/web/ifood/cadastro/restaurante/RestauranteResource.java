@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -27,6 +29,9 @@ import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement
 import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirements;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
+
 
 @Path("/restaurantes")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -38,6 +43,10 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 public class RestauranteResource {
     @Inject
     RestauranteService restauranteService;
+    
+    @Inject
+    @Channel("restaurantes")
+    Emitter<String> emitter;
 
     @GET
     @Counted(name = "RestauranteResource.listarTodos", displayName = "Quantidade de buscas Restaurante", absolute = true)
@@ -56,7 +65,12 @@ public class RestauranteResource {
     @POST
     @Transactional
     public void adicionar(RestauranteDomain restauranteDomain) {
-    	restauranteService.adicionar(restauranteDomain);
+    	Restaurante restaurante = restauranteService.adicionar(restauranteDomain);
+    	
+    	Jsonb create = JsonbBuilder.create();
+    	String json = create.toJson(restaurante);
+    	emitter.send(json);
+    	
     	Response.status(Status.CREATED).build();
     }
     

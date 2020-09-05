@@ -27,9 +27,10 @@ public class RestauranteService {
         return restauranteRepository.listarTodos();
     }
 	
-	public void adicionar(RestauranteDomain restauranteDomain) {
+	public Restaurante adicionar(RestauranteDomain restauranteDomain) {
 		Restaurante restaurante = restauranteMapper.restauranteDomainToRestaurante(restauranteDomain);
 		restauranteRepository.salvar(restaurante);
+		return restaurante;
 	}
 	
 	public void atualizar(Long id, RestauranteDomain restauranteDomain) {

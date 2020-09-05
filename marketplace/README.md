@@ -41,3 +41,4 @@ mvn quarkus:add-extension -Dextensions="resteasy-mutiny, jdbc-postgres, flyway, 
 | pg-client | Reactive SQL Clients para o postgres reativo |
 | resteasy-jsonb | Rest Json |
 | openapi | Swagger |
+| amqp | Artemis |
