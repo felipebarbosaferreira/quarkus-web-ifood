@@ -1,6 +1,13 @@
 package com.github.felipebarbosaferreira.quarkus.web.ifood.marketplace;
 
 import java.math.BigDecimal;
+import java.util.stream.StreamSupport;
+
+import io.smallrye.mutiny.Multi;
+import io.smallrye.mutiny.Uni;
+import io.vertx.mutiny.pgclient.PgPool;
+import io.vertx.mutiny.sqlclient.Row;
+import io.vertx.mutiny.sqlclient.RowSet;
 
 public class Prato {
     public Long id;
@@ -12,4 +19,18 @@ public class Prato {
     public Restaurante restaurante;
     
     public BigDecimal preco;
+
+	public static Multi<PratoDTO> findAll(PgPool pgPool) {
+		Uni<RowSet<Row>> preparedQuery = pgPool.preparedQuery("select * from prato").execute();
+		
+		return preparedQuery
+		.onItem()
+		.produceMulti(rowSet -> Multi
+				.createFrom()
+				.items(() -> { 
+					return StreamSupport.stream(rowSet.spliterator(), false); 
+				}))
+		.onItem()
+		.apply(PratoDTO::from);
+	}
 }
