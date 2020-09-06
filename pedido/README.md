@@ -32,10 +32,11 @@ If you want to learn more about building native executables, please consult http
 
 ## Extensoes
 
-mvn quarkus:add-extension -Dextensions="quarkus-smallrye-openapi, resteasy-jsonb, mongodb-panache"
+mvn quarkus:add-extension -Dextensions="quarkus-smallrye-openapi, resteasy-jsonb, mongodb-panache, kafka"
 
 | Extension | Description |
 | --- | --- |
 | quarkus-smallrye-openapi | Swagger |
 | resteasy-jsonb | Rest Json |
 | mongodb-panache | MongoDB |
+| kafka | ... |

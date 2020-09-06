@@ -45,4 +45,12 @@ public class Prato {
 				.onItem()
 				.apply(PratoDTO::from);
 	}
+
+	public static Uni<PratoDTO> findById(PgPool pgPool, Long prato) {
+		return pgPool
+				.preparedQuery("SELECT * FROM prato WHERE prato.id = $1 ORDER BY nome ASC")
+				.execute(Tuple.of(prato))
+				.map(RowSet::iterator)
+		        .map(iterator -> iterator.hasNext() ? PratoDTO.from(iterator.next()) : null);
+	}
 }
